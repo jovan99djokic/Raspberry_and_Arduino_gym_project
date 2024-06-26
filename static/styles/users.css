@@ -1,0 +1,111 @@
+.bar {
+    position: relative;
+    top: 0;
+    width: 100%;
+    background-color:#2d303e;
+}
+
+.button {
+   border: none;
+   display: inline-block;
+   background-color: #1f212a;
+   color: white;
+   text-align: center;
+   text-decoration: none;
+   display: inline-block;
+   font-size: 16px;
+   width: 100px;
+   height: 40px;
+   border-radius: 5px;
+   margin: 4px;
+}
+
+.button:hover {
+    opacity: 0.5;
+}
+
+.popup {
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+    display: none;
+}
+.popup-content {
+    background-color: white;
+    margin: 10% auto;
+    padding: 20px;
+    border: 1px solid #888888;
+    width: 30%;
+    font-weight: bolder;
+}
+.popup-content button {
+    display: block;
+    margin: 0 auto;
+}
+.show {
+    display: block;
+}
+
+body {
+    background-color: silver;
+}
+
+th {
+    height: 50px;
+    width: 150px;
+    text-align: center;
+}
+
+td {
+    width: 150px;
+    height: 50px;
+    padding-left: 10px;
+}
+
+table, th, td {
+    border: 1px solid;
+    font-size: 16px;
+}
+
+img {
+    height: 50px;
+    width: 50px;
+    margin: 5px;
+}
+
+img::before {
+    height: 50px;
+    width: 50px;
+    background-image: url(static/noImage.jpg);
+    margin: 5px;
+}
+
+input {
+    width: 500px;
+    height: 40px;
+    font-size: 12px;
+    border-radius: 5px;
+}
+
+select {
+    display: inline-block;
+    width: 100px;
+    height: 40px;
+    font-size: 12px;
+    border-radius: 5px;
+    margin: 12px;
+}
+
+option {
+    display: inline-block;
+    width: 100px;
+    height: 40px;
+    font-size: 12px;
+    border-radius: 5px;
+    margin: 12px;
+}

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="sr">
+    <head>
+        <title>GymApp</title>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE-edge">
+        <meta name="viewport" content="vidth=device-vidth, initial-scale=1.0">
+        <link rel= "stylesheet" href= "{{ url_for('static',filename='css/bootstrap.css') }}">
+        <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/memberships.css') }}">
+    </head>
+    <body  contenteditable="false">
+        <div class="container">
+            <!--Navbar-->
+            <div class="bar">
+                <a href="{{ url_for('home') }}">
+                    <button class="button" title="Nazad">Nazad</button>
+                </a>
+            </div>
+            <table>
+                <tr>
+                    <th>Ime</th>
+                    <th>Prezime</th>
+                    <th>Datum uplate</th>
+                    <th>Broj uplaćenih meseci</th>
+                    <th>Broj kartice</th>
+                    <th>Iznos</th>
+                    <th></th>
+                    <th></th>
+                </tr>
+
+                {% for membership in memberships %}
+
+                <tr>
+                    <td> {{ membership[5] }} </td>
+                    <td> {{ membership[6] }} </td>
+                    <td> {{ membership[1] }} </td>
+                    <td> {{ membership[2] }} </td>
+                    <td> {{ membership[9] }} </td>
+                    <td> {{ membership[4] }} </td>
+                    <td>
+                        <a href="{{ url_for('changeMembership', membership = membership) }}">
+                            <button class="button" title="Izmeni">Izmeni</button>
+                        </a>
+                    </td>
+                    <td>
+                        <form action="{{ url_for('memberships')}}" method="post">
+                            <input type="hidden" name="id" value="{{ membership[0] }}"/>
+                            <button class="button" title="Obriši">Obriši</button>
+                        </form>
+                    </td>
+                </tr>                      
+                
+                {% endfor %}
+            </table>
+        </div>
+    </body>
+</html>

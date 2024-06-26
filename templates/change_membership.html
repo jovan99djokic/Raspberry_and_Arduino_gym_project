@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="sr">
+    <head>
+        <title>GymApp</title>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE-edge">
+        <meta name="viewport" content="vidth=device-vidth, initial-scale=1.0">
+        <link rel= "stylesheet" href= "{{ url_for('static',filename='css/bootstrap.css') }}">
+        <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/change_membership.css') }}">
+    </head>
+    <body  contenteditable="false">
+        <div class="container">
+            <!--Navbar-->
+            <div class="bar">
+                <a href="{{ url_for('memberships') }}">
+                    <button class="button" title="Nazad">Nazad</button>
+                </a>
+            </div>
+            <form action="{{ url_for('changeMembership')}}" method="post">
+                <div class="user-content">
+                    <p>
+                        <label for="nameOfUser"><b>Ime i Prezime:</b> </label>
+                        <input type="hidden" name="membershipId" id="membershipId" value="{{membership[0]}}" required>
+                        <input type="text" value="{{membership[5]}} {{membership[6]}}" readonly="readonly">
+                    </p>
+                    <p>
+                        <label for="startDate"><b>Startni datum</b></label>
+                        <input type="date" id="startDate" name="startDate" value="{{ membership[1] }}" required>
+                    </p>
+                    <p>
+                        <label for="numberOfMonths"><b>Članarina za</b></label>
+                        <select name="numberOfMonths" id="numberOfMonths">
+                            {% if membership[2]|int == 30 %}
+                                <option value="30" selected>1 mesec</option>
+                            {% else %}
+                                <option value="30">1 mesec</option>
+                            {% endif %}
+                            {% if membership[2]|int == 90 %}
+                                <option value="90" selected>3 meseca</option>
+                            {% else %}
+                                <option value="90">3 meseca</option>
+                            {% endif %}
+                            {% if membership[2]|int == 180 %}
+                                <option value="180" selected>5 + 1 mesec</option>
+                            {% else %}
+                                <option value="180">5 + 1 mesec</option>
+                            {% endif %}
+                        </select>
+                    </p>
+                    <p>
+                        <label for="amount"><b>Iznos</b></label>
+                        <input type="number" placeholder="Iznos" id="amount" name="amount" value="{{ membership[4] }}" required>
+                    </p>
+                </div>
+                <div>
+                    <input type="hidden" name="next" value="{{ url_for('memberships') }}" />
+                    <button class="button" type="submit" title="Izmeni">Izmeni</button>
+                </div>
+            </form>    
+        </div>
+    </body>
+</html>

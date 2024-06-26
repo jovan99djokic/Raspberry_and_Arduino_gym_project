@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="sr">
+    <head>
+        <title>GymApp</title>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE-edge">
+        <meta name="viewport" content="vidth=device-vidth, initial-scale=1.0">
+        <link rel= "stylesheet" href= "{{ url_for('static',filename='css/bootstrap.css') }}">
+        <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/add_group.css') }}">
+    </head>
+    <body  contenteditable="false">
+        <div class="container">
+            <!--Navbar-->
+            <div class="bar">
+                <a href="{{ url_for('groups') }}">
+                    <button class="button" title="Nazad">Nazad</button>
+                </a>
+            </div>
+            <form action="{{ url_for('addGroup')}}" method="post">
+                <div class="user-content">
+                    <p>
+                        <label for="nameOfGroup"><b>Ime grupe</b></label>
+                        <input type="text" placeholder="Unesi ime grupe" id="groupName" name="groupName" required>
+                    </p>
+                    <p>
+                        <label for="startTermin"><b>Startni termin</b></label>
+                        <input type="time" placeholder="Unesi startni termin" id="startTime" name="startTime" required>
+                    </p>
+                    <p>
+                        <label for="numberOfMonths"><b>Krajnji termin</b></label>
+                        <input type="time" placeholder="Unesi krajnji termin" id="numberOfMonths" name="numberOfMonths" required>
+                    </p>
+                </div>
+                <div>
+                    <button class="button" type="submit" title="Kreiraj grupu">Kreiraj grupu</button>
+                </div>
+            </form>    
+        </div>
+    </body>
+</html>

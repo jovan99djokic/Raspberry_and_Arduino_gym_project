@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="sr">
+    <head>
+        <title>GymApp</title>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE-edge">
+        <meta name="viewport" content="vidth=device-vidth, initial-scale=1.0">
+        <link rel= "stylesheet" href= "{{ url_for('static',filename='css/bootstrap.css') }}">
+        <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/change_user.css') }}">
+    </head>
+    <body  contenteditable="false">
+        <div class="container">
+            <!--Navbar-->
+            <div class="bar">
+                <a href="{{ url_for('users') }}">
+                    <button class="button" title="Nazad">Nazad</button>
+                </a>
+            </div>
+            <form action="{{ url_for('changeUser')}}" method="post" enctype="multipart/form-data">
+                <div class="text-content">
+                    <p>
+                        <label for="name"><b>Ime</b></label>
+                        <input type="hidden" name="userId" id="userId" value="{{user[0]}}" required>
+                        <input type="text" id="firstname" name="firstname" value="{{user[1]}}">
+                    </p>
+                    <p>
+                        <label for="lastname"><b>Prezime</b></label>
+                        <input type="text" id="lastname" name="lastname" value="{{user[2]}}">
+                    </p>
+                    <p>
+                        <label for="personalId"><b>Broj lične karte</b></label>
+                        <input type="text" id="personalId" name="personalId" value="{{user[3]}}">
+                    </p>
+                    <p>
+                        <label for="group"><b>Izaberi grupu</b></label>
+                        <select name="group" id="group"> 
+                            {% for group in groups %}
+                                {% if group[0] == user[4]|int %} 
+                                    <option value="{{ group[0] }}" selected>{{ group[1] }}</option>
+                                {% else %}
+                                    <option value="{{ group[0] }}">{{ group[1] }}</option>
+                                {% endif %}
+                            {% endfor %}
+                        </select>
+                    </p>
+                    <p>
+                        <label for="idCard"><b>Broj kartice</b></label>
+                        <input type="hidden" name="oldIdCard" id="oldIdCard" value="{}">
+                        <select name="idCard" id="idCard"> 
+                            {% for chip in chips %}
+                                <option value="{{ chip[0] }}">{{ chip[0] }}</option>
+                                
+                            {% endfor %}
+                            <option value="{{ user[5] }}" selected>{{ user[5] }}</option>
+                        </select>
+                    </p>
+                    <p>
+                        <input type="hidden" name="userFile" id="userFile" value="{{user[6]}}" required>
+                        <label for="userPicture"><b>Dodaj sliku</b></label>
+                        <input type="file" id="userPicture" name="userPicture" accept="image/png, image/jpeg"/>
+                    </p>
+                </div>
+                <div>
+                    <input type="hidden" name="next" value="{{ url_for('users') }}" />
+                    <button class="button" type="submit" title="Izmeni korisnika">Izmeni korisnika</button>
+                </div>
+            </form>
+        </div>
+    </body>
+</html>

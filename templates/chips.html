@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="sr">
+    <head>
+        <title>GymApp</title>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE-edge">
+        <meta name="viewport" content="vidth=device-vidth, initial-scale=1.0">
+        <link rel= "stylesheet" href= "{{ url_for('static',filename='css/bootstrap.css') }}">
+        <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/groups.css') }}">
+    </head>
+    <body  contenteditable="false">
+        <div class="container">
+            <!--Navbar-->
+            <div class="bar">
+                <a href="{{ url_for('home') }}">
+                    <button class="button" title="Nazad">Nazad</button>
+                </a>
+            </div>
+            <div>
+                <a href="{{ url_for('addChips') }}">
+                    <button class="button" title="Dodaj čip">Dodaj čip</button>
+                </a>
+                <table>
+                    <tr>
+                        <th>Broj čipa</th>
+                        <th>Datum dodavanja</th>
+                        <th>Ime korisnika</th>
+                        <th>Prezime korisnika</th>
+                        <th></th>
+                    </tr>
+
+                    {% for chip in chips %}
+
+                    <tr>
+                        <td> {{ chip[0] }} </td>
+                        <td> {{ chip[1] }} </td>
+                        <td> {{ chip[3] }} </td>
+                        <td> {{ chip[4] }} </td>
+                        <td>
+                            <form action="{{ url_for('chips')}}" method="post">
+                                <input type="hidden" name="id" value="{{ chip[0] }}"/>
+                                <button class="button" title="Obriši">Obriši</button>
+                            </form>
+                        </td>
+                    </tr>                      
+                    
+                    {% endfor %}
+                </table>
+            </div>
+        </div>
+    </body>
+</html>

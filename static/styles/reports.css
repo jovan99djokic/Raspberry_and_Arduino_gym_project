@@ -1,0 +1,65 @@
+.bar {
+    position: relative;
+    top: 0;
+    width: 100%;
+    background-color:#2d303e;
+}
+
+.button {
+   border: none;
+   display: inline-block;
+   background-color: #1f212a;
+   color: white;
+   text-align: center;
+   text-decoration: none;
+   display: inline-block;
+   font-size: 16px;
+   width: 150px;
+   height: 50px;
+   border-radius: 5px;
+   margin: 12px;
+}
+
+.button:hover {
+    opacity: 0.5;
+}
+
+img {
+    height: 50px;
+    width: 50px;
+    margin: 5px;
+}
+
+img::before {
+    height: 50px;
+    width: 50px;
+    background-image: url(static/noImage.jpg);
+    margin: 5px;
+}
+
+body {
+    background-color: silver;
+}
+
+th {
+    height: 50px;
+    width: 150px;
+    text-align: center;
+}
+
+td {
+    height: 50px;
+    width: 200px;
+    padding-left: 10px;
+}
+
+table, th, td {
+    border: 1px solid;
+    font-size: 20px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.column {
+    width: 250px;
+}

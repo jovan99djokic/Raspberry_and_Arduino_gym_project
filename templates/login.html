@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="sr">
+    <head>
+        <title>GymApp</title>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE-edge">
+        <meta name="viewport" content="vidth=device-vidth, initial-scale=1.0">
+        <link rel= "stylesheet" href= "{{ url_for('static',filename='css/bootstrap.css') }}">
+        <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/login.css') }}">
+    </head>
+    <body  contenteditable="false">
+        <div class="container">
+            <div class="login">
+                <h1> Health & Active Fitness Centar </h1>
+                <form action="{{ url_for('login')}}" method="post" enctype="multipart/form-data">
+                    <label>Korisničko ime : </label>   
+                    <input type="text" placeholder="Unesi korisničko ime" name="username" required>  
+                    <label>Lozinka : </label>   
+                    <input type="password" placeholder="Unesi lozinku" name="password" required>
+                    {% if noAccount %}
+                        <label>Ponovi lozinku : </label>   
+                        <input type="password" placeholder="Unesi lozinku" name="repeatPassword" required>
+                        <button type="submit">Kreiraj nalog</button>
+                    {% else %}
+                        <button type="submit">Uloguj se</button>
+                    {% endif %}
+                </form>
+            </div>
+            <div class="flashes">
+                {% for message in get_flashed_messages() %}
+                  {{ message }}
+                {% endfor %}
+              </div>
+        </div>
+    </body>
+</html>

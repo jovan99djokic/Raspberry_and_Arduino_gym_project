@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="sr">
+    <head>
+        <title>GymApp</title>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE-edge">
+        <meta name="viewport" content="vidth=device-vidth, initial-scale=1.0">
+        <link rel= "stylesheet" href= "{{ url_for('static',filename='css/bootstrap.css') }}">
+        <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/change_group.css') }}">
+    </head>
+    <body  contenteditable="false">
+        <div class="container">
+            <!--Navbar-->
+            <div class="bar">
+                <a href="{{ url_for('groups') }}">
+                    <button class="button" title="Nazad">Nazad</button>
+                </a>
+            </div>
+            <form action="{{ url_for('changeGroup')}}" method="post">
+                <div class="user-content">
+                    <p>
+                        <label for="nameOfGroup"><b>Ime grupe</b></label>
+                        <input type="hidden" name="groupId" id="groupId" value="{{group[0]}}" required>
+                        <input type="text" placeholder="Unesi ime grupe" id="groupName" name="groupName" value="{{group[1]}}" required>
+                    </p>
+                    <p>
+                        <label for="startTermin"><b>Startni termin</b></label>
+                        <input type="time" placeholder="Unesi startni termin" id="startTime" name="startTime" value="{{group[2]}}" required>
+                    </p>
+                    <p>
+                        <label for="numberOfMonths"><b>Krajnji termin</b></label>
+                        <input type="time" placeholder="Unesi krajnji termin" id="numberOfMonths" name="numberOfMonths" value="{{group[3]}}" required>
+                    </p>
+                </div>
+                <div>
+                    <input type="hidden" name="next" value="{{ url_for('groups') }}" />
+                    <button class="button" type="submit" title="Izmeni grupu">Izmeni grupu</button>
+                </div>
+            </form>    
+        </div>
+    </body>
+</html>
