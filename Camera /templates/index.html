@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>USB Webcam Stream</title>
+</head>
+<body>
+    <h1>USB Webcam Stream</h1>
+    <video id="video_feed" autoplay playsinline width="640" height="480" style="border: 1px solid black;"></video>
+
+    <script>
+        var video = document.getElementById('video_feed');
+
+        function startVideoStream() {
+            if (navigator.mediaDevices.getUserMedia) {
+                navigator.mediaDevices.getUserMedia({ video: true })
+                    .then(function (stream) {
+                        video.srcObject = stream;
+                    })
+                    .catch(function (error) {
+                        console.log("Error accessing the webcam: " + error);
+                    });
+            } else {
+                alert('Your browser does not support getUserMedia API');
+            }
+        }
+
+        startVideoStream();
+    </script>
+</body>
+</html>

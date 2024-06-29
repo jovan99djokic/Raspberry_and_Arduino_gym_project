@@ -1,0 +1,6 @@
+Znaci ovde imamo .db fajl gde se smestaju podaci ocitani sa tag kartice, u ovom folderu se nalazi i python
+skripta koja je vezana preko usb-a sa dva Arduina preko Serijske komunikacije na Boudrate 4800 (To je zbog Wavgat Arduina moralo tako da bude xD)
+U sustini imamo 2 treda koja rade paralelno i citaju istovremeno da li je neki arudino poslao nesto sto je ocitao sa citaca, u slucaju da jeste on to smesta
+u bazu.
+
+Ovo je objasnjenje da bi mogao ja da se podsetim ili da olaksam nekom sledecem coveku koji bude radio na projektu.
