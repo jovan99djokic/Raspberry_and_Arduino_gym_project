@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Webcam Test</title>
+  <style>
+    /* Basic styling for the video element */
+    #webcam-preview {
+      width: 100%;
+      max-width: 640px;
+      margin: 0 auto;
+      display: block;
+      border: 2px solid #333;
+    }
+  </style>
+</head>
+<body>
+  <h1>Webcam Test</h1>
+  
+  <!-- Video element to display webcam feed -->
+  <video id="webcam-preview" autoplay playsinline></video>
+  
+  <script>
+    // Access the webcam and display the feed in the video element
+    async function startWebcam() {
+      try {
+        const stream = await navigator.mediaDevices.getUserMedia({ video: true });
+        const videoElement = document.getElementById('webcam-preview');
+        videoElement.srcObject = stream;
+      } catch (err) {
+        console.error('Error accessing webcam:', err);
+      }
+    }
+
+    // Call the function to start accessing the webcam when the page loads
+    window.onload = function() {
+      startWebcam();
+    };
+  </script>
+</body>
+</html>

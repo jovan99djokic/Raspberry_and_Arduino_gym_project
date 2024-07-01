@@ -1,0 +1,8 @@
+Pokretanjem ove skripte otvara ti se html strana u browseru gde se vidi kamera. Moguce je i strimovanje kamere online
+medjutim u tom slucaju dobijamo dosta nizak kvalitet slike i najbolji rezultat koji sam ja dobio je 1 frame u 4 do 5 sekunde, u smislu 
+definitivno je bolje pokrenuti je ovako lokalno.
+
+Html stranu mozes izmeniti ili implementirati u svoj program a mozes je i samo pozivati naknadno.
+
+U slucaju da je neophodno strimovati kameru online prvi korak je instalirati 64-bitni sistem posto biblioteke koje se koriste za strimovanje 
+u python-u uglavnom ne rade na 32-bitnim sistemima.
