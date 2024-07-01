@@ -1,0 +1,14 @@
+Znaci ovde imamo .db fajl gde se smestaju podaci ocitani sa tag kartice, u ovom folderu se nalazi i python
+skripta koja je vezana preko usb-a sa dva Arduina preko Serijske komunikacije na Boudrate 4800 (To je zbog Wavgat Arduina moralo tako da bude xD)
+U sustini imamo 2 treda koja rade paralelno i citaju istovremeno da li je neki arudino poslao nesto sto je ocitao sa citaca, u slucaju da jeste on to smesta
+u bazu.
+
+Ovo je objasnjenje da bi mogao ja da se podsetim ili da olaksam nekom sledecem coveku koji bude radio na projektu.
+
+
+
+Serial_app.py Smesta stvari u databazu dok app.py samo ispisuje ocitane vrednosti u konzolu
+
+
+Ostavio sam i pinove slobodne sa lab kabla posto sam morao iskorisiti jos jedan da bi povezao rfid citace sa arduinom, tako da su sad oba buzzera povezana
+na ground ti ih samo povezi na gpio pinove i pusti im napon oni ce pistati.
